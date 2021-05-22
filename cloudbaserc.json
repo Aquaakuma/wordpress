@@ -13,11 +13,15 @@
           "containerPort": 80,
           "envVariables": {
             "WORDPRESS_DB_HOST": "{{env.DB_IP}}:{{env.DB_PORT}}",
-            "WORDPRESS_DB_NAME": "wordpress"
+            "WORDPRESS_DB_NAME": "wordpress",
+            "WORDPRESS_DB_USER": "{{env.WORDPRESS_DB_USER}}",
+            "WORDPRESS_DB_PASSWORD": "{{env.WORDPRESS_DB_PASSWORD}}",
+            "WORDPRESS_DEBUG": "1"
           },
           "volumeMounts": {
             "/var/www/html": "wordpress-cfs"
-          }
+          },
+          "initialDelaySeconds": 90
         }
       }
     },
