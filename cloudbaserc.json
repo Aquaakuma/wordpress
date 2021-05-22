@@ -13,15 +13,11 @@
           "containerPort": 80,
           "envVariables": {
             "WORDPRESS_DB_HOST": "{{env.DB_IP}}:{{env.DB_PORT}}",
-            "WORDPRESS_DB_NAME": "wordpress",
-            "WORDPRESS_DB_USER": "{{env.DB_USER}}",
-            "WORDPRESS_DB_PASSWORD": "{{env.DB_PASSWORD}}",
-            "WORDPRESS_DEBUG": "1"
+            "WORDPRESS_DB_NAME": "wordpress"
           },
           "volumeMounts": {
             "/var/www/html": "wordpress-cfs"
-          },
-          "initialDelaySeconds": 90
+          }
         }
       }
     },
@@ -37,8 +33,8 @@
           "envMap": {
             "IP": "DB_IP",
             "PORT": "DB_PORT",
-            "USERNAME": "DB_USER",
-            "PASSWORD": "DB_PASSWORD"
+            "USERNAME": "WORDPRESS_DB_USER",
+            "PASSWORD": "WORDPRESS_DB_PASSWORD"
           }
         }
       ]
