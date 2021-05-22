@@ -14,6 +14,8 @@
           "envVariables": {
             "WORDPRESS_DB_HOST": "{{env.DB_IP}}:{{env.DB_PORT}}",
             "WORDPRESS_DB_NAME": "wordpress",
+            "WORDPRESS_DB_USER": "{{env.DB_USER}}",
+            "WORDPRESS_DB_PASSWORD": "{{env.DB_PASSWORD}}",
             "WORDPRESS_DEBUG": "1"
           },
           "volumeMounts": {
@@ -35,8 +37,8 @@
           "envMap": {
             "IP": "DB_IP",
             "PORT": "DB_PORT",
-            "USERNAME": "WORDPRESS_DB_USER",
-            "PASSWORD": "WORDPRESS_DB_PASSWORD"
+            "USERNAME": "DB_USER",
+            "PASSWORD": "DB_PASSWORD"
           }
         }
       ]
